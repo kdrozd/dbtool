@@ -14,16 +14,19 @@
 		<maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
 		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 		<exec-maven-plugin.version>3.0.0</exec-maven-plugin.version>
-
+		<really-executable-jar-maven-plugin.version>1.4.1</really-executable-jar-maven-plugin.version>
 		<junit-jupiter.version>5.7.0</junit-jupiter.version>
 
 		<picocli.version>4.6.1</picocli.version>
 		<logback-classic.version>1.2.3</logback-classic.version>
+		<guava.version>30.1.1-jre</guava.version>
+		<jsqlparser.version>4.0</jsqlparser.version>
+		<commons-lang3.version>3.12.0</commons-lang3.version>
+		<postgresql.version>42.2.23</postgresql.version>
 
 		<launcher.class>nl.drozd.tools.db.dbtool.MainCommand</launcher.class>
 
 	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -38,8 +41,26 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>30.1.1-jre</version>
+			<version>${guava.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.jsqlparser</groupId>
+			<artifactId>jsqlparser</artifactId>
+			<version>${jsqlparser.version}</version>
+		</dependency>
+
+		<!-- Databases with out-of-the-box support -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql.version}</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -49,13 +70,13 @@
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
+			<artifactId>junit-jupiter-params</artifactId>
 			<version>${junit-jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-params</artifactId>
+			<artifactId>junit-jupiter-engine</artifactId>
 			<version>${junit-jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
@@ -109,6 +130,8 @@
 										<exclude>META-INF/*.SF</exclude>
 										<exclude>META-INF/*.DSA</exclude>
 										<exclude>META-INF/*.RSA</exclude>
+										<exclude>META-INF/*.MF</exclude>
+										<exclude>META-INF/LICENSE.txt</exclude>
 									</excludes>
 								</filter>
 							</filters>
@@ -119,10 +142,10 @@
 			<plugin>
 				<groupId>org.skife.maven</groupId>
 				<artifactId>really-executable-jar-maven-plugin</artifactId>
-				<version>1.4.1</version>
+				<version>${really-executable-jar-maven-plugin.version}</version>
 				<configuration>
 					<flags>-Xms256M -Xmx2G</flags>
-					<programFile>ictool</programFile>
+					<programFile>dbtool</programFile>
 				</configuration>
 				<executions>
 					<execution>
@@ -137,15 +160,20 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${maven-surefire-plugin.version}</version>
 			</plugin>
-
 		</plugins>
 	</build>
-
-	<distributionManagement>
-		<repository>
-			<id>github</id>
-			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/kdrozd/dbtool</url>
-		</repository>
-	</distributionManagement>
+	<url>https://github.com/kdrozd/dbtool</url>
+	<organization>
+		<name>Krzysztof Drozd</name>
+		<url>https://github.com/kdrozd/dbtool</url>
+	</organization>
+	<scm>
+		<url>git@github.com:kdrozd/dbtool.git</url>
+		<developerConnection>scm:git:git@github.com:kdrozd/dbtool.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+	<issueManagement>
+		<system>git</system>
+		<url>https://github.com/kdrozd/dbtool/issues</url>
+	</issueManagement>
 </project>
