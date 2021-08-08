@@ -8,7 +8,8 @@ Requirements:
 - Java 11 (JRE)
 - Command line execution environment (Bash, Powershel,...)
 
-# Implemented commands
+# Implemented comma
+nds
 
 # Roadmap
 
