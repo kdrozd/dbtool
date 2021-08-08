@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import nl.drozd.tools.db.dbtool.MainCommand;
 import picocli.CommandLine;
 
-class SelectCommandTest {
+class DeleteCommandTest {
 	final PrintStream originalOut = System.out;
 	final PrintStream originalErr = System.err;
 	final ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -20,12 +20,17 @@ class SelectCommandTest {
 
 	@Test
 	void testConnection() {
-		String[] args = { "select", "-u=sa", "-p=sa", "-j=" + DBToolTestUtils.HTTESTDB, "select * from test.TBL_EMPLOYEES" };
+		String[] args = {
+				"delete",
+				"-u=sa",
+				"-p=sa",
+				"-j=" + DBToolTestUtils.HTTESTDB,
+				"DELETE FROM test.TBL_EMPLOYEES WHERE last_name='Gupta';" };
 
 		new CommandLine(new MainCommand()).execute(args);
-		assertAll("Check results for SQL SELECT",
+		assertAll("Check results for SQL Command",
 				() -> assertEquals("", err.toString(), "No errors"),
-				() -> assertTrue(out.toString().startsWith("ID|FIRST_NAME|LAST_NAME|EMAIL"), "Results header is printed"));
+				() -> assertEquals("", out.toString(), "No output"));
 
 	}
 

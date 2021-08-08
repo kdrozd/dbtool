@@ -30,11 +30,33 @@ dbtool select "select * from test.TBL_EMPLOYEES"
 ```
 
 
-# Roadmap
 
 # `insert`
+
+Example:
+
+```sh
+dbtool insert "INSERT INTO test.TBL_EMPLOYEES (first_name, last_name, email) VALUES ('Lokesh', 'Gupta', 'abc@gmail.com');"
+```
+
 # `delete`
+
+Example:
+
+```sh
+dbtool delete "DELETE FROM test.TBL_EMPLOYEES WHERE last_name='Gupta';"
+```
+
 # `update`
+
+Example:
+
+```sh
+dbtool update "UPDATE test.TBL_EMPLOYEES SET first_name = 'NewName' WHERE last_name='Gupta';"
+```
+
+# Roadmap
+
 # `extract`
 # `search`
 

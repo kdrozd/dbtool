@@ -44,8 +44,9 @@ public class SelectCommand extends DBCommand {
 
 		} catch (SQLException e) {
 			logger.error("SQL SELECT Exception: {}", e.getMessage());
+			return 1;
 		}
-		return 1;
+		return 0;
 	}
 
 	private void printResult(ResultSet rs) throws SQLException {

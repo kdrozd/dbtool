@@ -3,7 +3,10 @@ package nl.drozd.tools.db.dbtool;
 import java.util.concurrent.Callable;
 
 import nl.drozd.tools.db.dbtool.cli.PrintExceptionMessageHandler;
+import nl.drozd.tools.db.dbtool.commands.DeleteCommand;
+import nl.drozd.tools.db.dbtool.commands.InsertCommand;
 import nl.drozd.tools.db.dbtool.commands.SelectCommand;
+import nl.drozd.tools.db.dbtool.commands.UpdateCommand;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
@@ -12,7 +15,10 @@ import picocli.CommandLine.Command;
 		mixinStandardHelpOptions = true,
 		versionProvider = nl.drozd.tools.db.dbtool.cli.DBToolVersionProvider.class,
 		subcommands = {
-				SelectCommand.class
+				SelectCommand.class,
+				InsertCommand.class,
+				DeleteCommand.class,
+				UpdateCommand.class
 		})
 public class MainCommand implements Callable<Integer> {
 
