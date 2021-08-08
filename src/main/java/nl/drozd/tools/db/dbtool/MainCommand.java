@@ -3,13 +3,16 @@ package nl.drozd.tools.db.dbtool;
 import java.util.concurrent.Callable;
 
 import nl.drozd.tools.db.dbtool.cli.PrintExceptionMessageHandler;
+import nl.drozd.tools.db.dbtool.commands.SelectCommand;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
 @Command(
+		name = "dbtool",
 		mixinStandardHelpOptions = true,
 		versionProvider = nl.drozd.tools.db.dbtool.cli.DBToolVersionProvider.class,
 		subcommands = {
+				SelectCommand.class
 		})
 public class MainCommand implements Callable<Integer> {
 

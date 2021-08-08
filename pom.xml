@@ -4,23 +4,23 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>nl.drozd.tools.db.dbtool</groupId>
 	<artifactId>dbtool</artifactId>
-	<version>0.0.3</version>
+	<version>0.1.0</version>
 	<name>DBTool</name>
 	<description>Command line tool for quick DB use</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
-		
-		<!-- Probably will be upgraded to 3.8.x soon  -->
+
+		<!-- Probably will be upgraded to 3.8.x soon -->
 		<maven.version>3.6.3</maven.version>
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
-		<maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
+		<maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
 		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
 		<maven-enforcer-plugin.version>3.0.0</maven-enforcer-plugin.version>
 		<exec-maven-plugin.version>3.0.0</exec-maven-plugin.version>
 		<really-executable-jar-maven-plugin.version>1.5.0</really-executable-jar-maven-plugin.version>
-		
+
 		<junit-jupiter.version>5.7.0</junit-jupiter.version>
 
 		<picocli.version>4.6.1</picocli.version>
@@ -29,6 +29,7 @@
 		<jsqlparser.version>4.1</jsqlparser.version>
 		<commons-lang3.version>3.12.0</commons-lang3.version>
 		<postgresql.version>42.2.23</postgresql.version>
+		<hikari.version>5.0.0</hikari.version>
 
 		<launcher.class>nl.drozd.tools.db.dbtool.MainCommand</launcher.class>
 		<appname>dbtool</appname>
@@ -60,14 +61,22 @@
 			<version>${jsqlparser.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>${hikari.version}</version>
+		</dependency>
 		<!-- Databases with out-of-the-box support -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>${postgresql.version}</version>
 		</dependency>
-
-
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.200</version>
+		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
@@ -89,16 +98,16 @@
 	</dependencies>
 
 	<build>
-	    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>${maven-resources-plugin.version}</version>
-        </plugin>
-        
-      </plugins>
-    </pluginManagement>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven-resources-plugin.version}</version>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -185,7 +194,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.1.0</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
