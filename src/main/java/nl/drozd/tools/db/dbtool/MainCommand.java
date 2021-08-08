@@ -5,6 +5,7 @@ import java.util.concurrent.Callable;
 import nl.drozd.tools.db.dbtool.cli.PrintExceptionMessageHandler;
 import nl.drozd.tools.db.dbtool.commands.DeleteCommand;
 import nl.drozd.tools.db.dbtool.commands.InsertCommand;
+import nl.drozd.tools.db.dbtool.commands.SearchCommand;
 import nl.drozd.tools.db.dbtool.commands.SelectCommand;
 import nl.drozd.tools.db.dbtool.commands.UpdateCommand;
 import picocli.CommandLine;
@@ -18,13 +19,17 @@ import picocli.CommandLine.Command;
 				SelectCommand.class,
 				InsertCommand.class,
 				DeleteCommand.class,
-				UpdateCommand.class
+				UpdateCommand.class,
+				SearchCommand.class
 		})
 public class MainCommand implements Callable<Integer> {
 
 	public static void main(String[] args) {
 		int exitCode = new CommandLine(new MainCommand())
 				.setExecutionExceptionHandler(new PrintExceptionMessageHandler())
+				// This will disable comments in @files as any character can be used in passwords
+				// And whitechars are something unintuitive as comments characters ;)
+				.setAtFileCommentChar(null)				
 				.execute(args);
 		System.exit(exitCode);
 	}

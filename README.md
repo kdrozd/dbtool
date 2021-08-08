@@ -58,7 +58,22 @@ dbtool update "UPDATE test.TBL_EMPLOYEES SET first_name = 'NewName' WHERE last_n
 # Roadmap
 
 # `extract`
+
+Command will extract content of listed tables to sql script file. Each line will be new sql insert command.
+
 # `search`
+
+This is special version of `select` command. Where standard `select` command looks for specific columns in specific table this command will look into all tables in schema and colums in where statement will be matched using regexp.
+
+It's important to remember that this is not valid sql statement it's just way of expression. This statement will be broken up
+and translated in to many separate sql select commands.
+
+Example, to list all rows (from all tables) where column contains `name` in its name and value 'Gupta'
+
+```sql
+select name as [name] from test.* where name='Gupta'
+```
+
 
 # `reformat`
 ## `reformat insert`
