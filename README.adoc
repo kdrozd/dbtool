@@ -1,0 +1,23 @@
+= DBTool
+
+Command line tool to do some "ad-hoc" stuff with data in your database.
+
+
+
+== About 
+List of supported commands (functionalities) can be seen below.
+
+=== Requirements:
+
+* Java 11 (JRE)
+* Command line execution environment (Bash, Powershel,...)
+
+
+== Implemented commands
+
+* link:docs/select.adoc[`select`] Execute SQL SELECT command
+* link:docs/insert.adoc[`insert`] Execute SQL INSERT command
+* link:docs/update.adoc[`update`] Execute SQL UPDATE command
+* link:docs/delete.adoc[`delete`] Execute SQL DELETE command
+
+

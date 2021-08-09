@@ -13,6 +13,7 @@ import picocli.CommandLine.Command;
 
 @Command(
 		name = "dbtool",
+		description = "Database helper",
 		mixinStandardHelpOptions = true,
 		versionProvider = nl.drozd.tools.db.dbtool.cli.DBToolVersionProvider.class,
 		subcommands = {
