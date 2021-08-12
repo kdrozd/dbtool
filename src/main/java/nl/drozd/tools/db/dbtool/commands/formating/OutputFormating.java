@@ -18,9 +18,6 @@ public class OutputFormating {
 		case TSV:
 			printResult(rs, "\t", commandSpec);
 			break;
-		case TABLE:
-			printTable(rs, commandSpec);
-			break;
 		case JSONARRAY:
 			printJsonArray(rs, commandSpec);
 			break;
@@ -36,10 +33,11 @@ public class OutputFormating {
 	}
 
 	/**
-	 * Prints results as XSV. First row will contain header 
-	 * Next rows will contain result rows, culumns are separated by 'separtor' param
+	 * Prints results as XSV. First row will contain header Next rows will contain
+	 * result rows, culumns are separated by 'separtor' param
 	 * 
 	 * Function used to print PSV, CSV, TSV, etc formated outputs
+	 * 
 	 * @param rs
 	 * @param separator
 	 * @param commandSpec
@@ -74,9 +72,9 @@ public class OutputFormating {
 	}
 
 	/**
-	 *  Prints results as formated JSON Array. As objects and numbers of row can be big
-	 *  Output is not buffered to save memory.
-	 *  
+	 * Prints results as formated JSON Array. As objects and numbers of row can be
+	 * big Output is not buffered to save memory.
+	 * 
 	 * @param rs
 	 * @param commandSpec
 	 * @throws SQLException
@@ -115,8 +113,4 @@ public class OutputFormating {
 
 	}
 
-	private static void printTable(ResultSet rs, CommandSpec commandSpec) {
-		// TODO Auto-generated method stub
-
-	}
 }

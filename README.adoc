@@ -41,3 +41,14 @@ Some applications that I use:
 You can set `picocli.ansi` system variable to `false` or environment variable `NO_COLOR` to any value. 
 Please take a look at https://picocli.info/#_heuristics_for_enabling_ansi for more details.
 
+=== How to display output as table?
+
+Simple way involves setting output format to `CSV` and piping it to column command:
+
+[source,shell]
+----
+dbtool select "SELECT * from TABLE" | column -t -s, | less -S
+----
+
+Take a look at https://www.stefaanlippens.net/pretty-csv.html for more details.
+
