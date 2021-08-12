@@ -20,21 +20,24 @@ Some applications that I use:
 * https://www.mycli.net/[mycli] - Tool for MySQL (Python)
 * https://litecli.com/[litecli] - Tool for SQLite (Python)
 
-
-== About 
-List of supported commands (functionalities) can be seen below.
-
-=== Requirements:
+== Requirements:
 
 * Java 11 (JRE)
 * Command line execution environment (Bash, Powershel,...)
 
 
-== Implemented commands
+== Functionalities
 
 * link:docs/select.adoc[`select`] Execute SQL SELECT command
 * link:docs/insert.adoc[`insert`] Execute SQL INSERT command
 * link:docs/update.adoc[`update`] Execute SQL UPDATE command
 * link:docs/delete.adoc[`delete`] Execute SQL DELETE command
 
+
+== How To?
+
+=== How to disable colors in output?
+
+You can set `picocli.ansi` system variable to `false` or environment variable `NO_COLOR` to any value. 
+Please take a look at https://picocli.info/#_heuristics_for_enabling_ansi for more details.
 
