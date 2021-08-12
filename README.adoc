@@ -2,6 +2,23 @@
 
 Command line tool to do some "ad-hoc" stuff with data in your database.
 
+Main goal of this tool is to simplify common operation on data in multidatabase work environment. 
+This tool will never replace database native tooling or specialized applications targeting one database.
+It will work best in environment ask for simple commands from command line against different databases or 
+you just have JRE. 
+And it will not open interactive sessions. Think more of `mysql -e "SELECT * from TABLE"` that `mysql>`.
+
+
+
+If you work with one database or need advance futures please consider using native tools or one of the tools
+below.
+ 
+Some applications that I use:
+
+* https://github.com/xo/usql[usql] - Universal database tool (Go)
+* https://www.pgcli.com/[pgcli] - Tool for Postgresql (Python)
+* https://www.mycli.net/[mycli] - Tool for MySQL (Python)
+* https://litecli.com/[litecli] - Tool for SQLite (Python)
 
 
 == About 

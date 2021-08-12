@@ -23,10 +23,6 @@
 		<asciidoctor-maven-plugin.version>2.2.1</asciidoctor-maven-plugin.version>
 		<junit-jupiter.version>5.7.0</junit-jupiter.version>
 		<asciidoctorj.pdf.version>1.6.0</asciidoctorj.pdf.version>
-		<asciidoctorj.version>2.5.1</asciidoctorj.version>
-		<jruby.version>9.2.17.0</jruby.version>
-
-
 
 		<picocli.version>4.6.1</picocli.version>
 		<logback-classic.version>1.2.3</logback-classic.version>
@@ -36,6 +32,7 @@
 		<postgresql.version>42.2.23</postgresql.version>
 		<h2.version>1.4.200</h2.version>
 		<mysql.version>8.0.26</mysql.version>
+		<oracle.version>21.1.0.0</oracle.version>
 		<hikari.version>5.0.0</hikari.version>
 
 		<launcher.class>nl.drozd.tools.db.dbtool.MainCommand</launcher.class>
@@ -84,6 +81,11 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>${h2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc11</artifactId>
+			<version>${oracle.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -174,18 +176,6 @@
 						<arg>-Aproject=${project.groupId}/${project.artifactId}</arg>
 					</compilerArgs>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-site-plugin</artifactId>
-				<version>3.9.1</version>
-				<dependencies>
-					<dependency> <!-- Add Asciidoctor Doxia Parser Module -->
-						<groupId>org.asciidoctor</groupId>
-						<artifactId>asciidoctor-maven-plugin</artifactId>
-						<version>${asciidoctor-maven-plugin.version}</version>
-					</dependency>
-				</dependencies>
 			</plugin>
 			<plugin>
 				<artifactId>maven-shade-plugin</artifactId>
