@@ -21,7 +21,7 @@
 		<exec-maven-plugin.version>3.0.0</exec-maven-plugin.version>
 		<really-executable-jar-maven-plugin.version>1.5.0</really-executable-jar-maven-plugin.version>
 		<asciidoctor-maven-plugin.version>2.2.1</asciidoctor-maven-plugin.version>
-		<junit-jupiter.version>5.7.0</junit-jupiter.version>
+		<junit-jupiter.version>5.7.2</junit-jupiter.version>
 		<asciidoctorj.pdf.version>1.6.0</asciidoctorj.pdf.version>
 
 		<picocli.version>4.6.1</picocli.version>
