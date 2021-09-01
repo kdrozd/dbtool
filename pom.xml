@@ -32,7 +32,7 @@
 		<postgresql.version>42.2.23</postgresql.version>
 		<h2.version>1.4.200</h2.version>
 		<mysql.version>8.0.26</mysql.version>
-		<oracle.version>21.1.0.0</oracle.version>
+		<oracle.version>21.3.0.0</oracle.version>
 		<hikari.version>5.0.0</hikari.version>
 
 		<launcher.class>nl.drozd.tools.db.dbtool.MainCommand</launcher.class>
