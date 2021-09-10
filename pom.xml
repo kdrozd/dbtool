@@ -25,7 +25,7 @@
 		<asciidoctorj.pdf.version>1.6.0</asciidoctorj.pdf.version>
 
 		<picocli.version>4.6.1</picocli.version>
-		<logback-classic.version>1.2.5</logback-classic.version>
+		<logback-classic.version>1.2.6</logback-classic.version>
 		<guava.version>30.1.1-jre</guava.version>
 		<jsqlparser.version>4.1</jsqlparser.version>
 		<commons-lang3.version>3.12.0</commons-lang3.version>
